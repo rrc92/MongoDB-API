@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<ul id="songs">
+	
+</ul>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+	$.ajax({
+		method: 'GET',
+		url: '/songs'
+	}).then(function(songs){
+		for (var i=0; i<songs.length; i++){
+			var $li = $('<li>'); //<li></li> 
+
+			var tx = `_id: ${songs[i]._id} | votes: ${songs[i].votes} | song name: ${songs[i].songName}`
+
+			$li.text(tx);
+			$('#songs').append($li);
+		}
+		
+	})
+</script>
+</body>
+</html>
