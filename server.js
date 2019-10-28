@@ -1,6 +1,7 @@
 var express = require("express");
 var mongojs = require("mongojs");
-var bodyParser = require('body-parser');
+var cheerio = require("cheerio");
+var Nightmare = require('nightmare');
 
 var PORT = process.env.PORT || 3000;
 var app = express();
